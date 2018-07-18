@@ -1,22 +1,27 @@
 {
-    "name": "c10b10/wp-cli-deploy",
+    "name": "jazzman/wp-cli-deploy",
     "description": "Deploys the local WordPress database or the uploads directory to a remote server using ssh.",
     "type": "wp-cli-package",
     "keywords": ["wp-cli", "git", "deploy", "dump", "mysql", "uploads", "wordpress"],
-    "homepage": "https://github.com/c10b10/wp-cli-deploy",
+    "require": {
+        "php":">=5.6",
+        "wp-cli/wp-cli": "^1.5",
+        "albertofem/rsync-lib": "1.0.0",
+        "jazzman/parameter-bag": "0.1.1"
+    },
     "license": "MIT",
     "authors": [
-    {
-        "name": "Alex Ciobica",
-        "email": "alex.ciobica@gmail.com",
-        "homepage": "http://ciobi.ca"
-    }
-    ],
-        "require": {
-            "php": ">=5.4",
-            "wp-cli/wp-cli": ">=0.14"
-        },
-        "autoload": {
-            "files": [ "deploy.php" ]
+        {
+            "name": "V.Sokolyk",
+            "email": "vsokolyk@gmail.com"
         }
+    ],
+    "autoload": {
+        "psr-4": {
+            "JazzMan\\Deploy\\":"src/"
+        },
+        "files": [
+            "deploy-command.php"
+        ]
+    }
 }
