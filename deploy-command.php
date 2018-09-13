@@ -1,4 +1,6 @@
 <?php
+use JazzMan\Deploy\Deploy_Command;
+
 if ( ! class_exists( 'WP_CLI' ) ) {
     return;
 }
@@ -10,6 +12,6 @@ if ( file_exists( $autoload ) ) {
 }
 
 try {
-    WP_CLI::add_command('deploy', '\JazzMan\Deploy\Deploy_Command');
+    WP_CLI::add_command('deploy', Deploy_Command::class);
 } catch (Exception $e) {
 }

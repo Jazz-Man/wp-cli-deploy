@@ -1,27 +1,41 @@
 {
-    "name": "jazzman/wp-cli-deploy",
-    "description": "Deploys the local WordPress database or the uploads directory to a remote server using ssh.",
-    "type": "wp-cli-package",
-    "keywords": ["wp-cli", "git", "deploy", "dump", "mysql", "uploads", "wordpress"],
-    "require": {
-        "php":">=5.6",
-        "wp-cli/wp-cli": "^1.5",
-        "albertofem/rsync-lib": "1.0.0",
-        "jazzman/parameter-bag": "0.1.1"
-    },
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "V.Sokolyk",
-            "email": "vsokolyk@gmail.com"
-        }
-    ],
-    "autoload": {
-        "psr-4": {
-            "JazzMan\\Deploy\\":"src/"
-        },
-        "files": [
-            "deploy-command.php"
-        ]
+  "name": "jazzman/wp-cli-deploy",
+  "description": "Deploys the local WordPress database or the uploads directory to a remote server using ssh.",
+  "type": "wp-cli-package",
+  "keywords": [
+    "wp-cli",
+    "git",
+    "deploy",
+    "dump",
+    "mysql",
+    "uploads",
+    "wordpress"
+  ],
+  "require": {
+    "php": ">=5.6",
+    "wp-cli/wp-cli": "^2.0",
+    "albertofem/rsync-lib": "^1.0",
+    "jazzman/parameter-bag": "^0.1.1"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "V.Sokolyk",
+      "email": "vsokolyk@gmail.com"
     }
+  ],
+  "extra": {
+    "wordpress-install-dir": "vendor/wordpress"
+  },
+  "autoload": {
+    "psr-4": {
+      "JazzMan\\Deploy\\": "src/"
+    },
+    "files": [
+      "deploy-command.php"
+    ]
+  },
+  "require-dev": {
+    "johnpbloch/wordpress": "^4.9"
+  }
 }

@@ -332,6 +332,7 @@ class Deploy_Command extends \WP_CLI_Command
      * @param $assoc_args
      *
      * @return bool
+     * @throws \WP_CLI\ExitException
      */
     public function push($args, $assoc_args)
     {
@@ -381,6 +382,7 @@ class Deploy_Command extends \WP_CLI_Command
      * @param $assoc_args
      *
      * @return bool
+     * @throws \WP_CLI\ExitException
      */
     public function pull($args, $assoc_args)
     {
@@ -616,7 +618,12 @@ class Deploy_Command extends \WP_CLI_Command
         $runner->run();
     }
 
-    /** Dumps the local database after performing search-replace. */
+    /** Dumps the local database after performing search-replace.
+     *
+     * @param array $args
+     *
+     * @return string
+     */
     private static function dump_db($args = [])
     {
 
@@ -695,7 +702,13 @@ class Deploy_Command extends \WP_CLI_Command
         return self::$config;
     }
 
-    /** Determines the verbosity level: 1, 2, or 3 */
+    /** Determines the verbosity level: 1, 2, or 3
+     *
+     * @param $string
+     * @param $default
+     *
+     * @return mixed
+     */
     private static function get_verbosity($string, $default)
     {
         $number = count_chars_unicode($string, 'v');
