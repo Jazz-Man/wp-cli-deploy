@@ -36,6 +36,10 @@
     ]
   },
   "require-dev": {
-    "johnpbloch/wordpress": "^4.9"
+    "roave/security-advisories": "dev-master",
+    "johnpbloch/wordpress": "^4.9",
+    "symfony/var-dumper": "^4.1",
+    "dg/composer-cleaner": "^2.0",
+    "wp-cli/wp-cli-bundle": "^2.0"
   }
 }

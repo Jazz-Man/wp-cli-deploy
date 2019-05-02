@@ -6,7 +6,9 @@ if (!defined('WP_CLI')) {
     return;
 }
 
+use AFM\Rsync\Rsync;
 use WP_CLI;
+use function WP_CLI\Utils\parse_ssh_url;
 
 
 /**
@@ -300,6 +302,27 @@ class Deploy_Command extends \WP_CLI_Command
         WP_CLI::line('Version: 1.1.0-alpha');
         WP_CLI::line('Author: Alex Ciobica / @ciobi');
         WP_CLI::line('Run "wp help deploy" for the documentation');
+
+
+        $_runner = WP_CLI::get_runner();
+        $_config = WP_CLI::get_configurator();
+
+        $ssh_connect = 'vsokolyk@148.251.3.80/var/www/vhosts/upmedio.com/isb.upmedio.com';
+        $bits = parse_ssh_url( $ssh_connect );
+        $ssh_user = parse_ssh_url( $ssh_connect ,PHP_URL_USER);
+        $ssh_host = parse_ssh_url( $ssh_connect ,PHP_URL_HOST);
+
+
+        $rsync = new Rsync();
+
+        $rsync->setSshOptions([
+          'username'=>$ssh_user,
+          'host'=>$ssh_host
+        ]);
+
+        dump($ssh_user);
+        dump($rsync);
+
     }
 
     /**
